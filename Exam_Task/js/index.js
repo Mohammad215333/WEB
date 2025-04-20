@@ -455,7 +455,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Функция для получения данных о репетиторах через API
 async function fetchTutors() {
-    const apiUrl = "http://exam-api-courses.std-900.ist.mospolytech.ru/api/tutors?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47";
+    const apiUrl = "http://exam-api-courses.std-900.ist.mospolytech.ru/api/tutors?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d";
                     
     try {
         const response = await fetch(apiUrl);
@@ -601,7 +601,7 @@ async function submitBookingForm(event) {
     try {
         // Отправляем данные на сервер
         const response = await fetch(
-            "http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47",
+            "http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
