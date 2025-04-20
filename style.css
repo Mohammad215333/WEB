@@ -5,35 +5,54 @@
 }
 
 body {
-    background-color: grey;
-    color: white;
+    background-color: #f5f7fa;
+    color: #2d3748;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 main {
     text-align: center;
     padding: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    color: #4a5568;
+    font-weight: 600;
 }
 
 .versions {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
     margin: 0 auto;
 }
 
 .versions a {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: white;
-    background-color:black;
-    padding: 1rem;
-    border-radius: 2rem;
-    font-weight: bold;
-    font-size: 1.1rem;
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.3));
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    min-height: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.versions a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
