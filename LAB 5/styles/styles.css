@@ -1,0 +1,13 @@
+img {
+    margin: 1rem 0 0.5rem 1rem;
+    width: 30rem;
+    height: auto;
+}
+
+table, th, td {
+
+    border-collapse:collapse;
+    padding: 0.5rem;
+    border: #000 0.1rem solid;
+    text-align: center;
+}
