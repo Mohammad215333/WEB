@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформить заказ - Food Construct</title>
+    <link rel="stylesheet" href="styles/total.css">
+    <link rel="stylesheet" href="styles/order.css">
+</head>
+<body>
+    <header>
+        <h1>Food Construct</h1>
+        <nav>
+            <a href="index.html">О нас</a>
+            <a href="lunch_menu.html">Собрать ланч</a>
+            <a href="order.html" class="active">Оформить заказ</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
+    <main>
+        <section id="order-summary-section">
+            <h2>Состав заказа</h2>
+            <div id="order-items-container">
+                <div class="order-loading">Загрузка вашего заказа...</div>
+            </div>
+        </section>
+
+        <section id="order-form-section">
+            <h2>Оформление заказа</h2>
+            <form id="order-form" method="POST">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="subscribe" checked>
+                        Получать информацию о скидках и акциях
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефона:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес доставки:</label>
+                    <input type="text" id="address" name="delivery_address" required>
+                    <p class="note">Доставка осуществляется только по Москве</p>
+                </div>
+                <div class="form-group">
+                    <label>Время доставки:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="delivery_type" value="now" checked>
+                            Как можно скорее
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery_type" value="by_time">
+                            К указанному времени
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" id="delivery-time-group" style="display: none;">
+                    <label for="delivery-time">Укажите время доставки:</label>
+                    <input type="time" id="delivery-time" name="delivery_time" min="07:00" max="23:00" step="300">
+                    <p class="note">Доступное время доставки с 7:00 до 23:00</p>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Комментарии к заказу:</label>
+                    <textarea id="comments" name="comment" rows="4"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Отправить заказ</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Позвонить нам +7-000-000-00-00</p>
+    </footer>
+    <script src="order.js"></script>
+</body>
+</html>
