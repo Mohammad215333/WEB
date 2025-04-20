@@ -6,7 +6,7 @@ const ITEMS_PER_PAGE = 3; // Количество курсов на страни
 
 // Функция для получения данных о курсах через API
 async function fetchCourses() {
-    const apiUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/api/courses?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9";
+    const apiUrl = "http://exam-api-courses.std-900.ist.mospolytech.ru/api/courses?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d";
 
     try {
         const response = await fetch(apiUrl);
@@ -288,9 +288,6 @@ function calculateTotalPrice(course, persons) {
     return Math.round(basePrice); // Округляем итоговую стоимость
 }
 
-
-
-
 // Отправка формы заявки на сервер
 document.getElementById("applicationForm").addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -329,7 +326,8 @@ document.getElementById("applicationForm").addEventListener("submit", async (eve
         };
         // Отправляем запрос на сервер
         const response = await fetch(
-            "http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9",
+            
+            "http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -402,7 +400,7 @@ function showNotification(message, type = "success") {
 
 
 
-//http://cat-facts-api.std-900.ist.mospolytech.ru/api/tutors/{tutor-id}?api_key=a2973cdd-d303-48f2-a6b6-78ff07878f95
+//http://exam-api-courses.std-900.ist.mospolytech.ru/api/tutors/{tutor-id}?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d
 
 
 
@@ -457,8 +455,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Функция для получения данных о репетиторах через API
 async function fetchTutors() {
-    const apiUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/api/tutors?api_key=a2973cdd-d303-48f2-a6b6-78ff07878f95";
-
+    const apiUrl = "http://exam-api-courses.std-900.ist.mospolytech.ru/api/tutors?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47";
+                    
     try {
         const response = await fetch(apiUrl);
 
@@ -603,7 +601,7 @@ async function submitBookingForm(event) {
     try {
         // Отправляем данные на сервер
         const response = await fetch(
-            "http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders?api_key=a2973cdd-d303-48f2-a6b6-78ff07878f95",
+            "http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
