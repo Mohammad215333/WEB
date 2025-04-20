@@ -1,5 +1,5 @@
-const apiUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9"; // URL API для получения заказов
-let currentPage = 1; // Текущая страница
+const apiUrl = "http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d"; 
+let currentPage = 1; 
 const ordersPerPage = 5; // Количество заказов на странице
 
 // Функция для загрузки заказов с учетом пагинации
@@ -28,7 +28,6 @@ async function loadOrders(page = 1) {
     }
 }
 
-
 // Функция для получения названия курса по его ID
 async function fetchCourseName(courseId) {
     // Если ID курса равен 7, возвращаем фиксированное название
@@ -36,7 +35,7 @@ async function fetchCourseName(courseId) {
         return "Занятие с репетитором";
     }
 
-    const apiUrl = `http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9`;
+    const apiUrl = `http://exam-api-courses.std-900.ist.mospolytech.ru/?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d`;
 
     try {
         const response = await fetch(apiUrl);
@@ -52,7 +51,6 @@ async function fetchCourseName(courseId) {
         return "Неизвестный курс"; // Возвращаем значение по умолчанию в случае ошибки
     }
 }
-
 
 // Функция для отображения заказов в таблице
 async function displayOrders(orders) {
@@ -106,15 +104,15 @@ function displayPagination(currentPage, totalPages) {
     paginationContainer.appendChild(nextButton);
 }
 
-
 // Функция для смены страницы
 function changePage(page) {
     currentPage = page;
     loadOrders(page); // Загружаем заказы для новой страницы
 }
+
 // Функция для отображения деталей заказа
 async function showDetails(orderId) {
-    const apiUrl = `http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders/${orderId}?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9`;
+    const apiUrl = `http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders/${orderId}?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d`;
 
     try {
         // Отправляем GET-запрос для получения деталей заказа
@@ -150,7 +148,6 @@ async function showDetails(orderId) {
     }
 }
 
-
 let orderIdToEdit = null; // Хранит ID заказа, который нужно редактировать
 
 // Функция для открытия модального окна редактирования
@@ -159,7 +156,7 @@ async function editOrder(orderId) {
 
     try {
         // Получаем данные заказа с сервера
-        const response = await fetch(`http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders/${orderId}?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9`);
+        const response = await fetch(`http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders/${orderId}?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d`);
         if (!response.ok) {
             throw new Error(`Ошибка получения данных заказа: ${response.status}`);
         }
@@ -200,7 +197,7 @@ async function saveOrderChanges(event) {
         
 
         // Отправляем PUT-запрос на сервер
-        const response = await fetch(`http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders/${orderIdToEdit}?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9`, {
+        const response = await fetch(`http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders/${orderIdToEdit}?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedData),
@@ -232,7 +229,6 @@ async function saveOrderChanges(event) {
 // Привязываем обработчик к форме редактирования
 document.getElementById("editOrderForm").addEventListener("submit", saveOrderChanges);
 
-
 let orderIdToDelete = null; // Хранит ID заказа, который нужно удалить
 
 // Функция для показа модального окна удаления
@@ -248,7 +244,7 @@ async function deleteOrder() {
 
     try {
         // Отправляем DELETE-запрос к API
-        const response = await fetch(`http://cat-facts-api.std-900.ist.mospolytech.ru/api/orders/${orderIdToDelete}?api_key=b1f19860-58f9-4c45-a7fd-a1554c4f18d9`, 
+        const response = await fetch(`http://exam-api-courses.std-900.ist.mospolytech.ru/api/orders/${orderIdToDelete}?api_key=d7066d49-9e1b-49f6-bac7-83e807c7c47d`, 
         { method: "DELETE" });
 
         // Проверяем успешность запроса
@@ -279,14 +275,10 @@ async function deleteOrder() {
 // Привязываем обработчик к кнопке подтверждения удаления
 document.getElementById('confirmDeleteButton').addEventListener('click', deleteOrder);
 
-
 // Загружаем заказы при загрузке страницы
 document.addEventListener("DOMContentLoaded", loadOrders);
 
-
-
 //КУРСЫ ИНФА
-
 let allCourses = []; // Все курсы (загружаются из API)
 let filteredCourses = []; // Отфильтрованные курсы
 const ITEMS_PER_PAGE = 3; // Количество курсов на странице
