@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="log.css" rel="stylesheet">
+    <link rel="icon" href="/nectar_training_icon.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <!-- Шапка сайта -->
+        <header class="bg-secondary py-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Логотип -->
+                <div class="logo">
+                    <a href="index.html" title="На главную">
+                        <h1 class="text-white">Центр языкового обучения</h1>
+                    </a>
+                </div>
+                <!-- Панель навигации -->
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="courses.html" class="nav-link text-uppercase">Наши курсы</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link text-uppercase">О нас</a></li>
+                        <li class="nav-item"><a href="contacts.html" class="nav-link text-uppercase">Контактная информация</a></li>
+                        <li class="nav-item"><a href="log.html" class="nav-link active text-uppercase">Личный профиль</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Область уведомлений -->
+        <section id="notifications" class="container mt-3">
+            <!-- Здесь будут отображаться уведомления -->
+        </section>
+
+        <!-- Таблица заказов -->
+        <section id="orders" class="container my-5">
+            <h2 class="text-center mb-4">Мои заказы</h2>
+            <!-- Таблица заказов -->
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Название курса</th>
+                        <th>Дата занятия</th>
+                        <th>Общая стоимость</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                </tbody>
+            </table>
+        
+            <!-- Пагинация -->
+            <nav aria-label="Навигация по страницам" class="mt-4">
+                <ul id="pagination" class="pagination justify-content-center">
+                    <!-- Кнопки пагинации будут добавляться через JS -->
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Модальное окно "Подробнее" -->
+        <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Детали заказа</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно "Изменить заказ" -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form id="editOrderForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Изменить заказ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Поля для редактирования заказа -->
+                            <div class="mb-3">
+                                <label for="editCourseName" class="form-label">Название курса</label>
+                                <input type="text" id="editCourseName" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDateStart" class="form-label">Дата начала</label>
+                                <input type="date" id="editDateStart" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editTimeStart" class="form-label">Время начала</label>
+                                <input type="time" id="editTimeStart" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editDuration" class="form-label">Продолжительность (часы)</label>
+                                <input type="number" id="editDuration" class="form-control" min="1" max="40" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editPersons" class="form-label">Количество участников</label>
+                                <input type="number" id="editPersons" class="form-control" min="1" max="20" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editPrice" class="form-label">Стоимость (руб.)</label>
+                                <input type="number" id="editPrice" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Уведомление об успешном редактировании -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="successToastEdit" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Изменение прошло успешно!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно подтверждения удаления -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Удалить заказ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Вы уверены, что хотите удалить этот заказ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Уведомление об успешном удалении -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Заказ успешно удалён!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>О нашем центре</h5>
+                    <p>Мы предоставляем качественное обучение языкам и используем продвинутые методы для достижения лучших результатов.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контактная информация</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Телефон:</strong> +7 (925) 550 18 56</li>
+                        <li><strong>Email:</strong> support@language.ru</li>
+                        <li><strong>Адрес:</strong> Москва, ул. Михалковская, д.7 к3</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Социальные сети</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white text-decoration-none">
+                                <i class="bi bi-facebook"></i> Facebook
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white text-decoration-none">
+                                <i class="bi bi-instagram"></i> Instagram
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white text-decoration-none">
+                                <i class="bi bi-linkedin"></i> LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                &copy; 2025 Центр языкового обучения. Все права защищены.
+            </div>
+        </div>
+    </footer>
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/accunt.js" defer></script>
+</body>
+</html>
