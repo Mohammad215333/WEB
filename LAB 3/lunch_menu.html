@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>LUNCH menu</title>
+    <link rel="stylesheet" href="styles/total.css">
+    <link rel="stylesheet" href="styles/lunch_menu.css">
+</head>
+
+<body>
+    <header>
+        <h1>Food Construct</h1>
+        <nav>
+            <a href="index.html">О нac</a>
+            <a class="active" href="#">Собрать ланч</a>
+            <a href="#">Заказы</a>
+            <a href="#">Контакты</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Выбрите суп</h2>
+            <div class="dishes">
+                <div>
+                    <img src="images/menu/soups/gazpacho.jpg" alt="гаспачо">
+                    <span class="dish-details">
+                        <p> 195&#x20bd </p>
+                        <p>гаспачо</p>
+                        <p>350г</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+                <div>
+                    <img src="images/menu/soups/mushroom_soup.jpg" alt="Грибной суп-пюре">
+                    <span class="dish-details">
+                        <p> 185&#x20bd </p>
+                        <p>Грибной суп-пюре</p>
+                        <p>330г</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+                <div>
+                    <img src="images/menu/soups/norwegian_soup.jpg" alt="норвежский суп">
+                    <span class="dish-details">
+                        <p> 270&#x20bd </p>
+                        <p>норвежский суп</p>
+                        <p>330г</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Выбрите главное блюдо</h2>
+            <div class="dishes">
+                <div>
+                    <img src="images/menu/main_course/friedpotatoeswithmushrooms1.jpg" alt="жареная картошка с грибами">
+                    <span class="dish-details">
+                        <p> 150&#x20bd </p>
+                        <p>жареная картошка с грибами</p>
+                        <p>250г</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+                <div>
+                    <img src="images/menu/main_course/lasagna.jpg" alt="Лазанья">
+                    <span class="dish-details">
+                        <p> 385&#x20bd </p>
+                        <p>Лазанья</p>
+                        <p>310г</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+                <div>
+                    <img src="images/menu/main_course/chickencutletsandmashedpotatoes.jpg"
+                        alt="Котлеты из курицы с картофельным пюре">
+                    <span class="dish-details">
+                        <p> 225&#x20bd </p>
+                        <p>Котлеты из курицы с картофельным пюре</p>
+                        <p>280г</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Выбрите напиток</h2>
+            <div class="dishes">
+                <div>
+                    <img src="images/menu/beverages/orangejuice.jpg" alt="Апельсиновый сок">
+                    <span class="dish-details">
+                        <p> 120&#x20bd </p>
+                        <p>Апельсиновый сок</p>
+                        <p>300 мл</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+                <div>
+                    <img src="images/menu/beverages/applejuice.jpg" alt="Яблочный сок">
+                    <span class="dish-details">
+                        <p> 90&#x20bd </p>
+                        <p>Яблочный сок</p>
+                        <p>300 мл</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+                <div>
+                    <img src="images/menu/beverages/carrotjuice.jpg" alt="морковный сок">
+                    <span class="dish-details">
+                        <p> 110&#x20bd </p>
+                        <p>морковный сок </p>
+                        <p>300 мл</p>
+                    </span>
+                    <button>добавить</button>
+                </div>
+            </div>
+        </section>
+        <section id="form-dilevery">
+            <h2>Сделaть Заказ</h2>
+            <form action="https://httpbin.org/post" method="POST">
+                <div class="form_order">
+                    <h3>Ваш заказ</h3>
+                    <label for="soup">Суп</label>
+                    <select id="soup" name="soup" required>
+                        <option value="">-- Выберите суп --</option>
+                        <option value="гаспачо">гаспачо</option>
+                        <option value="норвежский суп">норвежский суп</option>
+                        <option value="Грибной суп-пюре">Грибной суп-пюре</option>
+                    </select>
+
+                    <label for="main">Главное блюдо</label>
+                    <select id="main" name="main" required>
+                        <option value="">-- Выберите главное блюдо --</option>
+                        <option value="">жареная картошка с грибами</option>
+                        <option value="">Лазанья</option>
+                        <option value="">Котлеты из курицы с картофельным пюре</option>
+                    </select>
+
+                    <label for="drink">Напиток</label>
+                    <select id="drink" name="drink" required>
+                        <option value="">-- Выберите напиток --</option>
+                        <option value="">Апельсиновый сок</option>
+                        <option value="">Яблочный сок</option>
+                        <option value="">морковный сок </option>
+                    </select>
+
+                    <label for="comments">Комментарии к заказу</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                </div>
+
+                <div class="form_informtion">
+                    <h3>Ваши данные</h3>
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label>
+                        <input type="checkbox" name="agree" required>
+                        Получать информацию о скидках и акциях
+                    </label>
+                    <label for="number">Номер телефона:</label>
+                    <input type="tel" id="tel" name="tel" required>
+
+                    <label for="adress">Адрес доставки:</label>
+                    <input type="text" id="adress" name="adress" required>
+                    <p><i>Доставка осуществляется только по Москве</i></p>
+
+                    <label class="full-label">Время доставки</label>
+                    <input type="radio" id="speed" name="speed" value="speed">
+                    <label for="speed">Как можно скорее</label><br>
+
+                    <input type="radio" id="normal" name="normal" value="normal">
+                    <label for="normal">К указанному времени</label><br>
+
+                    <label class="full-label">Укажаите время доставки</label>
+                    <input type="time" id="time" name="time" value="time" max="23:00" min="07:00" step="300">
+                    <p>Доступное время доставки с 7:00 до 23:00</p>
+                </div>
+                <div class="buttons">
+                    <button type="reset">Сбросить</button>
+                    <button type="submit">Отправить</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Позванить нам +7-000-000-00-00</p>
+    </footer>
+</body>
+
+</html>

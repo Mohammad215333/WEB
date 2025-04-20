@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2 {
+    padding: 2rem 0.5rem;
+}
+header {
+    padding-bottom: 1.5rem ;
+    background-color: #e1dbd7;
+    filter: drop-shadow(0 0 1.5rem #81766ead);
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    margin: 0 1rem;
+}
+
+nav a.active {
+    color: tomato;
+}
+
+nav a:hover {
+    color: rgb(255, 85, 0);
+}
+
+nav a.active {
+    color: rgb(201, 48, 21);
+}
+
+main {
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+}
+
+
+footer{
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 1rem;
+}
