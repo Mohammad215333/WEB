@@ -1,0 +1,65 @@
+h1 {
+    text-align: center;
+}
+
+.form-container {
+    background-color: #e1dbd7;
+    padding: 10px 30px;
+    border-radius: 3rem;
+    box-shadow: 0 0 45px rgba(92, 92, 92, 0.6);
+    width: 80%;
+    padding: 3rem;
+    text-align: left;
+    margin: 2rem auto;
+    display: block;}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+legend {
+    font-weight: bold;
+}
+
+label input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
