@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-menu" class="menu">
+        <h1>Math Game</h1>
+        <p>Select Level:</p>
+        <button onclick="startGame('Easy')">Easy</button>
+        <button onclick="startGame('Medium')">Medium</button>
+        <button onclick="startGame('Hard')">Hard</button>
+        <button onclick="startGame('Prime')">Prime</button>
+        <p>High Score: <span id="high-score">0</span></p>
+        <i>If you get 3 incorrect answers, the game is over.</i>
+    </div>
+
+    <div id="game-container" class="game-container" style="display: none;">
+        <h1>Math Game</h1>
+        <div id="game-info">
+            <p>Level: <span id="level">Easy</span></p>
+            <p>Time left: <span id="time-left">60</span></p>
+            <p>Question: <span id="question"></span></p>
+        </div>
+        <form id="answer-form">
+            <input type="text" id="answer" placeholder="Enter your answer" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+        <div id="score">
+            <p>Correct: <span id="correct-count">0</span></p>
+            <p>Incorrect: <span id="incorrect-count">0</span></p>
+        </div>
+    </div>
+
+    <div id="game-over-menu" class="menu" style="display: none;">
+        <h1>Game Over</h1>
+        <p>Your Score: <span id="final-score"></span></p>
+        <button onclick="restartGame()">Restart</button>
+        <button id="next-level-btn" onclick="nextLevel()">Next Level</button>
+        <button onclick="exitGame()">Main Page</button>
+    </div>
+
+    <div id="congratulations-menu" class="menu" style="display: none;">
+        <h1>Congratulations!</h1>
+        <p>You answered 10 questions correctly!</p>
+        <button onclick="restartGame()">Restart Level</button>
+        <button id="next-level-congrats" onclick="nextLevel()">Next Level</button>
+        <button onclick="exitGame()">Main Page</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
